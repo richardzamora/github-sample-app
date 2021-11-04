@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-// TODO: Convert to use freezed
-class GitHubUser {
-  GitHubUser(
-      {@required this.login, @required this.avatarUrl, @required this.htmlUrl});
+part 'github_user.freezed.dart';
 
-  final String login;
-  final String avatarUrl;
-  final String htmlUrl;
+@freezed
+abstract class GitHubUser with _$GitHubUser {
+  const factory GitHubUser({String login, String avatarUrl, String htmlUrl}) =
+      _GitHubUser;
 
   factory GitHubUser.fromJson(Map<String, dynamic> json) {
     if (json == null) {
@@ -50,6 +49,6 @@ class GitHubUser {
     }
     */
 
-  @override
-  String toString() => 'username: $login';
+  // @override
+  // String toString() => 'username: $login';
 }
